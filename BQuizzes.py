@@ -12,11 +12,13 @@ answerfile = 'answers' + str(quizNum) + '.txt'
 
 # 1. Open 2 files that you will write to, a quiz and an answer key file
 # <var> = open(<string>, 'w')
-
+quiz1 = open(quizname, 'w')
+answer1 = open(answerfile, 'w')
 
 # 2. Write headings on both files
 # <filevariable>.write(<string>)
-
+shelfFile.write(quizname)
+shelfFile.write(answerfile)
 
 # the following creates a list of states, and then puts them in a random order
 states = list(capitals.keys())
@@ -32,24 +34,25 @@ for questionNum in range(50):  # loop through each of the 50 states
   # <list>.remove(<value>)
   # OR
   # del <list>[<index>]
+  wrong.remove(correct)
 
   # 4. A multiple choice quiz generally as a couple of wrong choices along with the correct choice. Create a list of multiple choice options. Start by randomly selecting 3 or 4 (or more, if you wish) wrong choices
   # <variable> = random.sample(<list>, <how many>)
-  
+  choices = random.sample (wrong, 3)
 
   # 5. Add the correct answer to your list of multiple choice options.
   # <list>.append(<value>)
-
+  choices.append (correct)
 
 
   # 6. Make sure you shuffle the options for the multiple choice (otherwise, the correct answer will always be the last choice)
   # random.shuffle(<list>)
-
+  random.shuffle(choices)
 
   # 7. Write the question to the quiz (It should at least include the state itself and possibly the questions number)
   # Reminder: states[questionNum] is the current state
   # <filevariable>.write(<text>)
-
+  
 
   # 8. Write the answer choices to the quiz. Choices are usually labeled A, B, C, D. It can be done with a loop (which is much easier), but doesn't have to be.
   # <filevariable>.write(<text>)
